@@ -155,32 +155,33 @@ export default function FloatingChatbot() {
             <div ref={messagesEndRef} />
           </div>
 
-          {/* Input */}
-          <div className="flex gap-2 border-t border-gray-100 p-3">
-            <input
-              ref={inputRef}
-              type="text"
-              value={input}
-              onChange={(e) => setInput(e.target.value)}
-              onKeyDown={(e) => {
-                if (e.key === "Enter" && !e.shiftKey) {
-                  e.preventDefault();
-                  sendMessage();
-                }
-              }}
-              placeholder="Type your message..."
-              disabled={loading}
-              className="flex-1 rounded-xl border border-gray-200 px-3 py-2 text-sm outline-none focus:border-indigo-400 focus:ring-1 focus:ring-indigo-400 disabled:opacity-50"
-            />
-            <button
-              onClick={sendMessage}
-              disabled={loading || !input.trim()}
-              className="rounded-xl bg-gradient-to-r from-indigo-600 to-violet-600 px-4 py-2 text-sm text-white disabled:opacity-50 hover:opacity-90 transition-opacity"
-            >
-              Send
-            </button>
-          </div>
 
+{/* Input */}
+<div className="flex gap-2 border-t border-gray-100 bg-white p-3">
+  <input
+    ref={inputRef}
+    type="text"
+    value={input}
+    onChange={(e) => setInput(e.target.value)}
+    onKeyDown={(e) => {
+      if (e.key === "Enter" && !e.shiftKey) {
+        e.preventDefault();
+        sendMessage();
+      }
+    }}
+    placeholder="Type your message..."
+    disabled={loading}
+    className="flex-1 rounded-xl border border-gray-300 bg-white px-3 py-2 text-sm text-black placeholder-gray-400 outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 disabled:bg-gray-100 disabled:opacity-70"
+  />
+
+  <button
+    onClick={sendMessage}
+    disabled={loading || !input.trim()}
+    className="rounded-xl bg-gradient-to-r from-indigo-600 to-violet-600 px-4 py-2 text-sm text-white shadow-md transition-all hover:scale-105 hover:opacity-90 disabled:opacity-50"
+  >
+    Send
+  </button>
+</div>
           {/* Footer */}
           <div className="pb-2 text-center text-xs text-gray-400">
             Powered by Go Visit Sikkim • +91 70011 03688
